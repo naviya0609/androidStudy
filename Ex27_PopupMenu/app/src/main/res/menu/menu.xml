@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/apple"
+        android:title="사과"
+        android:icon="@mipmap/ic_launcher" />
+    <item android:id="@+id/banaba"
+        android:title="바나나"
+        android:icon="@mipmap/ic_launcher" />
+
+    <item android:id="@+id/grape"
+        android:title="포도"
+        android:icon="@mipmap/ic_launcher" />
+
+    <item android:id="@+id/other"
+        android:title="기타"
+        android:icon="@mipmap/ic_launcher">
+        <menu>
+            <item android:id="@+id/korea"
+                android:title="한국"
+                android:icon="@mipmap/ic_launcher" />
+            <item android:id="@+id/usa"
+                android:title="미국"
+                android:icon="@mipmap/ic_launcher" />
+
+        </menu>
+    </item>
+</menu>

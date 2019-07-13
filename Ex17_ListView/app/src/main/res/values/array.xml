@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="web">
+        <item>HTML</item>
+        <item>CSS</item>
+        <item>IDE</item>
+        <item>JQUERY</item>
+        <item>REACT</item>
+        <item>VUE.JS</item>
+        <item>NODEJS</item>
+    </array>
+
+</resources>

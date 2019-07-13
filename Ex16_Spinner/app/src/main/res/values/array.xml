@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="arr2">
+        <item>수업과목</item>
+        <item>JAVA</item>
+        <item>JSP</item>
+        <item>JAVASCRIPT</item>
+        <item>ANDROID</item>
+    </array>
+
+    <array name="images">
+        <item>그림목록</item>
+        <item>boy</item>
+        <item>coffe</item>
+        <item>dog</item>
+        <item>donald</item>
+    </array>
+</resources>
