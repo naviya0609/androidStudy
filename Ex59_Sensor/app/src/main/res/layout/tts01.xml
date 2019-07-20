@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="기상청에 따르면 다나스는 이날 낮 12시께 진도 서쪽 약 50km 해상
+                  (북위 34.5도, 동경 125.8도)에서 열대저압부로 약화했다. 태풍이 열대저압부로 약화했다는 것은 소멸했음을 의미한다.  당초 다나스는 남부 지방을 관통할 것으로 예보됐으나 지난 밤 제주도 남쪽 수온이 낮은 해역을 지나며 강도가 급격히 약해졌다." />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="home" />
+</LinearLayout>
