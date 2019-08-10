@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onSensorChanged(SensorEvent event) {
                 float v1 = event.values[0];  // x축 (방위축)
-                float v2 = event.values[0];  // y축 (피치축)
-                float v3 = event.values[0];  // z축 (롤축)
+                float v2 = event.values[1];  // y축 (피치축)
+                float v3 = event.values[2];  // z축 (롤축)
                 textView6.setText("x="+v1 +"y="+v2+"z="+v3);
                 if(v1 == 0){
                     Toast.makeText(MainActivity.this, "접근완료", Toast.LENGTH_SHORT).show();
@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         synchronized (this){
             // 방향센서 3개 넘어온다.
             float v1 = event.values[0];  // x축 (방위축)
-            float v2 = event.values[0];  // y축 (피치축)
-            float v3 = event.values[0];  // z축 (롤축)
+            float v2 = event.values[1];  // y축 (피치축)
+            float v3 = event.values[2];  // z축 (롤축)
 
             switch (event.sensor.getType()){
                 case Sensor.TYPE_ACCELEROMETER :
