@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.ny.ex66_network.R;
 
+import org.json.JSONArray;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -34,7 +35,7 @@ import javax.xml.parsers.SAXParserFactory;
 public class MainActivity extends AppCompatActivity {
     TextView result;
     Handler handler = new Handler();
-    String conn_msg, sax_mag1 ,sax_mag2 ;
+    String conn_msg, sax_mag1 ,sax_mag2 , json_msg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("my","1");
+                Log.d("my","3");
                 // 스레드 처리해서 서버에 접속
                 new Thread(new Runnable() {
                     @Override
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("my","1");
+                Log.d("my","4");
                 // 스레드 처리해서 서버에 접속
                 new Thread(new Runnable() {
                     @Override
@@ -122,6 +123,28 @@ public class MainActivity extends AppCompatActivity {
                 }).start();
             }
         });
+        findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("my","5");
+                // 스레드 처리해서 서버에 접속
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        serverConnect("http://172.16.14.1:8090/server01/MyController03");
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                process05(); // json 파싱
+                                json_msg ="";
+                            }
+                        });
+                    }
+                }).start();
+            }
+        });
+
+
     }
 
     private void serverConnect(String str){
@@ -215,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //DOM 방식 : 속성 가져오기
+    //SAX 방식 : TEXT 가져오기
     private void process03(){
         try{
          sax_mag1 = "XML 파싱 (sax) \n\n";
@@ -228,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-    //DOM 방식 : 속성 가져오기
+    //SAX 방식 :속성 가져오기
     private void process04(){
         try{
             sax_mag1 = "XML ATTR 파싱 (sax) \n\n";
@@ -241,6 +264,29 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    //JSON 정보 파싱
+    private void process05(){
+        try{
+        BufferedReader br= new BufferedReader(new StringReader(conn_msg));
+        String msg = br.readLine();
+        json_msg = "JSON 파싱 \n\n";
+        //현재 배열처리 되어있어 json도 배열처리
+            JSONArray arr= new JSONArray(msg);
+            for(int i = 0; i<arr.length(); i++){
+                json_msg += arr.getJSONObject(i).getString("idx")      +",  "+
+                            arr.getJSONObject(i).getString("id")        +",  "+
+                            arr.getJSONObject(i).getString("pw")        +",  "+
+                            arr.getJSONObject(i).getString("name")      +",  "+
+                            arr.getJSONObject(i).getString("age")       +",  "+
+                            arr.getJSONObject(i).getString("addr")      +",  "+
+                            arr.getJSONObject(i).getString("regdate")   +"\n\n  ";
+            }
+            result.setText(json_msg);
+
+        }catch (Exception e){  }
+    }
+
     class MyXMLProcess01 extends DefaultHandler {
         //시작태그 끝태그 사이의 text 추출 메소드
         @Override
@@ -271,4 +317,6 @@ public class MainActivity extends AppCompatActivity {
             result.setText(sax_mag2);
         }
     }
+
+
 }

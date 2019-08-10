@@ -15,33 +15,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="XML(DOM)" />
+            android:text="XML\n(DOM)" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="XML(DOM2)" />
+            android:text="XML\n(DOM2)" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="XML(SAX)" />
+            android:text="XML\n(SAX)" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="XML(SAX2)" />
+            android:text="XML\n(SAX2)" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="JSON" />
     </LinearLayout>
@@ -53,14 +54,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/result"
-                android:textSize="15sp"
-                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginTop="30dp"
+                android:text="TextView"
+                android:textSize="15sp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
